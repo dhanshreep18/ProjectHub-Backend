@@ -49,12 +49,12 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests().antMatchers(
-                        Endpoints.AUTH + "/**",
-                        "/v3/**",
-                        "/swagger-resources/**",
-                        "/swagger-ui/**",
-                        "/webjars/**",
-                        /* Probably not needed */ "/swagger.json"
+                        "**/" + Endpoints.AUTH + "/**",
+                        "**/v3/**",
+                        "**/swagger-resources/**",
+                        "**/swagger-ui/**",
+                        "**/webjars/**",
+                        /* Probably not needed */ "**/swagger.json"
                 ).permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().and().sessionManagement()
